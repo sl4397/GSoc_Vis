@@ -18,11 +18,11 @@ shinyServer(function(input, output){
     g1.smooth <- g1 + geom_smooth(se = F, span = input$s)
     g1.both <- g1.uncertain + geom_smooth(se = F, span = input$s)
     
-    if(input$checkbox1 == 1 & input$checkbox2 ==1){
+    if(input$checkbox1  & input$checkbox2 ){
       ggplotly(g1.both)
-    } else if(input$checkbox1 == 1){
+    } else if(input$checkbox1){
       ggplotly(g1.uncertain)
-    } else if(input$checkbox2 == 1){
+    } else if(input$checkbox2){
       ggplotly(g1.smooth)
     } else{ggplotly(g1)}
     
@@ -44,7 +44,7 @@ shinyServer(function(input, output){
       ylab(input$c3)
     
     
-    if(input$checkbox3 == 1){
+    if(input$checkbox3){
       g2plus <- g2 + geom_smooth(method = "lm", se = F)
       ggplotly(g2plus, tooltip = "text")
     }
