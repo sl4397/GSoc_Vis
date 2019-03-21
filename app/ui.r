@@ -1,13 +1,15 @@
 library(shiny)
 library(plotly)
 
+temperature <- read.csv("../output/CleanedTemperaturesByCountry.csv")
+
 shinyUI(
  navbarPage(
   title = 'Global Temperature Visualization',
   tabPanel('line plot',
            sidebarPanel(
              selectInput("c1", label = "Country", selected = "United States",
-                         choices = as.character(unique(data$Country))),
+                         choices = as.character(unique(temperature$Country))),
              br(),
              
              checkboxInput("checkbox1", label = "Show Uncertainty", value = F),
@@ -25,9 +27,9 @@ shinyUI(
   tabPanel('scatter plot',
            sidebarPanel(
              selectInput("c2", label = "Select Country 1", selected = "United States",
-                         choices = as.character(unique(data$Country))),
+                         choices = as.character(unique(temperature$Country))),
              selectInput("c3", label = "Select Country 2", 
-                         choices = as.character(unique(data$Country))),
+                         choices = as.character(unique(temperature$Country))),
              br(),
              checkboxInput("checkbox3", label = "Fit Linear Regression", value = F)
            ),

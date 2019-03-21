@@ -2,12 +2,12 @@ library(shiny)
 library(plotly)
 library(tidyverse)
 
-data <- read.csv("../output/CleanedTemperaturesByCountry.csv")
+temperature <- read.csv("../output/CleanedTemperaturesByCountry.csv")
 
 shinyServer(function(input, output){
   
   output$line <- renderPlotly({
-    g1 <- data %>% 
+    g1 <- temperature %>% 
       filter(Country == input$c1) %>% 
       ggplot(., aes(year, AvgTemp))+
       geom_line()+
@@ -32,7 +32,7 @@ shinyServer(function(input, output){
   
   
   output$scatter <- renderPlotly({
-    g2 <- data %>% 
+    g2 <- temperature %>% 
       filter(Country %in% c(input$c2,input$c3)) %>% 
       select(year, Country, AvgTemp) %>% 
       spread(Country, AvgTemp) %>%
@@ -58,7 +58,7 @@ shinyServer(function(input, output){
  
   
   output$bar <- renderPlotly({
-    g3 <- data %>% 
+    g3 <- temperature %>% 
       group_by(Country) %>% 
       summarise(AvgTempByCountry = mean(AvgTemp, na.rm = T)) %>% 
       ggplot(., aes(x = reorder(Country, AvgTempByCountry), y = AvgTempByCountry))+
