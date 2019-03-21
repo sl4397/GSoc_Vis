@@ -1,7 +1,7 @@
 library(lubridate)
 library(tidyverse)
 
-data <- read.csv("../data/GlobalLandTemperaturesByCountry.csv")
+data <- read.csv("..data/GlobalLandTemperaturesByCountry.csv")
 data$dt <- as.Date(data$dt)
 data <- data %>% 
   mutate(year = year(dt)) %>% 

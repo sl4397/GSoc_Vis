@@ -1,8 +1,10 @@
 library(shiny)
 library(plotly)
+library(tidyverse)
 
-function(input, output){
-  data <- read.csv("../output/CleanedTemperaturesByCountry.csv")
+data <- read.csv("../output/CleanedTemperaturesByCountry.csv")
+
+shinyServer(function(input, output){
   
   output$line <- renderPlotly({
     g1 <- data %>% 
@@ -44,10 +46,10 @@ function(input, output){
     
     if(input$checkbox3 == 1){
       g2plus <- g2 + geom_smooth(method = "lm", se = F)
-      ggplotly(g2plus)
+      ggplotly(g2plus, tooltip = "text")
     }
     else{
-      ggplotly(g2)
+      ggplotly(g2, tooltip = "text")
     }
     
   })
@@ -73,4 +75,4 @@ function(input, output){
   
 
 
-}
+})

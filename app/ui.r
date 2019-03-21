@@ -1,7 +1,8 @@
 library(shiny)
 library(plotly)
 
-navbarPage(
+shinyUI(
+ navbarPage(
   title = 'Global Temperature Visualization',
   tabPanel('line plot',
            sidebarPanel(
@@ -38,4 +39,4 @@ navbarPage(
   tabPanel('bar plot', plotlyOutput("bar", height = 2500))
 
 
-)
+))
