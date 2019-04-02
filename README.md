@@ -1,7 +1,8 @@
+Climate change is one of the most serious issues in 21st century. This Shiny App, using data from 
+https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data, visualizes 
+global temperature from 3 aspects.
 
-This Shiny App is about global temperature visulization. I used data from 
-https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data
-to create three visualization tags.
+![](../figs/fig1.png)
 
 1. A line plot to show temperature change across years for selected country. User can choose layers to add on the line plot:
 add uncertainty and fit a smoother. User can also specify the smoother parameter on the slider.
