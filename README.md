@@ -1,5 +1,4 @@
-Climate change is one of the most serious issues in 21st century. This Shiny App, using data from 
-https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data, 
+Climate change is one of the most serious issues in 21st century. This Shiny App
 visualizes global temperature from 3 aspects.
 
 
@@ -10,3 +9,5 @@ add uncertainty and fit a smoother. User can also specify the smoother parameter
 'fit linear regression' option which fits a linear regression line on the scatter plot.
 
 3. A bar plot to show average temperature by country arranged in a descending order.
+
+data: https://www.kaggle.com/berkeleyearth/climate-change-earth-surface-temperature-data
